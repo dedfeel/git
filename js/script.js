@@ -1866,70 +1866,70 @@
 // })
 
 
-let saqtau = document.getElementById('saqtau')
-let data = document.getElementById('data')
-let listData =[]
+// let saqtau = document.getElementById('saqtau')
+// let data = document.getElementById('data')
+// let listData =[]
 
-saqtau.addEventListener('click', function(e){
-    e.preventDefault()
+// saqtau.addEventListener('click', function(e){
+//     e.preventDefault()
 
-    let name = document.getElementById('input1').value
-    let age = document.getElementById('input2').value
+//     let name = document.getElementById('input1').value
+//     let age = document.getElementById('input2').value
 
-    if(name && age){
-        listData.push({name: name, age: age})
-        console.log(listData);
+//     if(name && age){
+//         listData.push({name: name, age: age})
+//         console.log(listData);
         
-        sessionStorage.setItem('Info',JSON.stringify(listData))
-    }else{
-        alert("Ақпарат ергіз")
-    }
-})
+//         sessionStorage.setItem('Info',JSON.stringify(listData))
+//     }else{
+//         alert("Ақпарат ергіз")
+//     }
+// })
 
-let korsetu = document.getElementById("korsetu")
+// let korsetu = document.getElementById("korsetu")
 
-korsetu.addEventListener('click', function(e){
-    e.preventDefault()
+// korsetu.addEventListener('click', function(e){
+//     e.preventDefault()
 
-    let aqparat = JSON.parse(sessionStorage.getItem('Info'))
+//     let aqparat = JSON.parse(sessionStorage.getItem('Info'))
     
     
 
-    if(aqparat){
-        data.textContent = ''
+//     if(aqparat){
+//         data.textContent = ''
 
-        aqparat.forEach((person, i) => {3
-            let div = document.createElement('div')
+//         aqparat.forEach((person, i) => {3
+//             let div = document.createElement('div')
 
-        div.innerHTML = `
-        <div> index: ${i}</div>
-        <h1>${person.name}</h1>
-        <p>${person.age}</p>
-        <button  onclick="oshir(${i})">Өшіру</button>`
+//         div.innerHTML = `
+//         <div> index: ${i}</div>
+//         <h1>${person.name}</h1>
+//         <p>${person.age}</p>
+//         <button  onclick="oshir(${i})">Өшіру</button>`
 
-        data.appendChild(div)
-        });
+//         data.appendChild(div)
+//         });
         
-    }else{
-        alert('Ақпарат жоқ, Ақпарат енгіз')
-    }
-})
+//     }else{
+//         alert('Ақпарат жоқ, Ақпарат енгіз')
+//     }
+// })
 
 
-function oshir(index) {
-    console.log('Өщірейін деп жатқан индекс: ', index);
-    data = JSON.parse(sessionStorage.getItem('Info'))
+// function oshir(index) {
+//     console.log('Өщірейін деп жатқан индекс: ', index);
+//     data = JSON.parse(sessionStorage.getItem('Info'))
 
-    data = data.filter((el, i) => index != i)
-    console.log(data);
+//     data = data.filter((el, i) => index != i)
+//     console.log(data);
 
-    sessionStorage.setItem('Info', JSON.stringify(data))
-    window.location.reload()
-}
+//     sessionStorage.setItem('Info', JSON.stringify(data))
+//     window.location.reload()
+// }
 
-let tazalau = document.getElementById("tazalau")
+// let tazalau = document.getElementById("tazalau")
 
-tazalau.addEventListener("click", function(){
-    sessionStorage.clear()
-    window.location.reload()
-})
+// tazalau.addEventListener("click", function(){
+//     sessionStorage.clear()
+//     window.location.reload()
+// })
