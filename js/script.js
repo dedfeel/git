@@ -1676,3 +1676,260 @@
 // button.addEventListener('click', function(){
 //     p.classList.toggle('p-style')
 // })
+
+
+// week 19 day4
+
+// function fetchData(){
+//     fetch('https://67873274c4a42c916105d2fe.mockapi.io/api/onlineduken/products').then(response=>{
+//         return response.json()
+//     }).then(otvet=>(console.log(otvet))).catch(()=>{
+//         console.log('error');
+        
+//     })
+// }
+
+// fetchData()
+
+
+// async function fetchData() {
+//     try{
+//         let user = await fetch('https://67873274c4a42c916105d2fe.mockapi.io/api/onlineduken/products')
+//         if(!user.ok){
+//             throw new Error("Ақпарат алу мүмкін болмады")
+//         }
+//         let data = await user.json()
+//         console.log(data);
+//     }catch(err){
+//         console.log(err);
+//     }
+// }
+
+// fetchData()
+
+
+
+
+// function fetchPosts(){
+//     fetch('https://jsonplaceholder.typicode.com/posts').then(response =>{
+//         if(!response.ok){
+//             throw new Error('Посттарды алу мүмкін болмады')
+//         }
+//         return response.json()
+//     })
+//     .then(data => console.log(data))
+//     .catch(err => console.error('қате', err))
+// }
+
+// fetchPosts();
+
+
+
+    // async function fetchPosts() {
+    //     try{
+    //         let post = await fetch('https://jsonplaceholder.typicode.com/posts')
+    //         if(!post.ok){
+    //             throw new Error('Посттарды алу мүмкін болмады')
+    //         }
+    //         let data = await post.json()
+    //         console.log(data)
+    //     }catch(err){
+    //         console.log(err);
+    //     }
+    // }
+
+    // fetchPosts();
+
+
+// async function fetchData() {
+//     try{
+//         let user = await fetch('https://67873274c4a42c916105d2fe.mockapi.io/api/onlineduken/products')
+   
+//         if(!user.ok){
+//             throw new Error('new error')
+//         }
+
+//         let data = await user.json()
+//         let container = document.getElementById('container')    
+
+//         for(let i = 0; i<data.length; i++){
+//             let div = document.createElement('div')
+
+//             div.innerHTML = `
+//              <h2>${data[i].name}</h2>
+//              <p>${data[i].price}</p>`
+
+//              container.appendChild(div)
+//         }
+//     }catch(err){
+//         console.error(err.message)
+//     }
+// }
+
+// fetchData()
+
+
+// let div = document.createElement('div')
+
+
+// localStorage.setItem('name', "Aziz")
+// localStorage.setItem('surname', "Berik")
+// localStorage.setItem('hobby', "Coding")
+// localStorage.setItem('age', "18")
+
+// localStorage.clear()
+// localStorage.removeItem('name')
+
+// let name = localStorage.getItem('name')
+// let age = localStorage.getItem('age')
+// let surname = localStorage.getItem('surname')
+
+// div.innerHTML = `<h1>${name}</h1>
+// <h2>${surname}</h2>
+// <p>${age}</p>`
+
+
+
+// document.body.appendChild(div)
+
+// let name = document.getElementById('name')
+// let age = document.getElementById('age')
+// let saqtau = document.getElementById('btn-saqtau')
+// let korsetu = document.getElementById('btn-korsetu')
+// let clear = document.getElementById('btn-clear')
+
+// saqtau.addEventListener('click', function() {
+//     localStorage.setItem("name", name.value)
+//     localStorage.setItem("age", age.value)
+// })
+
+// korsetu.addEventListener('click', function() {
+//     let name = localStorage.getItem("name")
+//     let age = localStorage.getItem("age")
+
+//     alert(`Аты: ${name} \n жасы:${age}`)
+// })
+
+// clear.addEventListener('click', function() {
+//     localStorage.clear()
+// })
+
+// // Немесе мына түрі
+
+// saqtau.addEventListener('click', function(e) {
+//     e.preventDefault()
+    
+//     if(name && age ){
+//         localStorage.setItem("name", name.value)
+//         localStorage.setItem("age", age.value)
+//     }
+// })
+
+// korsetu.addEventListener('click', function() {
+//     let name = localStorage.getItem("name")
+//     let age = localStorage.getItem("age")
+
+//     if(name && age){
+//         alert(`Аты: ${name} \n жасы:${age}`)
+//     }
+    
+// })
+
+// clear.addEventListener('click', function(e) {
+//     e.preventDefault()
+//     localStorage.clear()
+//     window.location.reload()
+// })
+
+// let name = document.getElementById('name')
+// let age = document.getElementById('age')
+// let saqtau = document.getElementById('btn-saqtau')
+// let korsetu = document.getElementById('btn-korsetu')
+// let clear = document.getElementById('btn-clear')
+// let massivName = []
+
+
+// saqtau.addEventListener('click', function() {
+//     localStorage.setItem("name", name.value)
+//     localStorage.setItem("age", age.value)
+// })
+
+// korsetu.addEventListener('click', function() {
+//     let name = localStorage.getItem("name")                            
+//     let age = localStorage.getItem("age")
+
+//     alert(`Аты: ${name} \n жасы:${age}`)
+// })
+
+// clear.addEventListener('click', function() {
+//     localStorage.clear()
+// })
+
+
+let saqtau = document.getElementById('saqtau')
+let data = document.getElementById('data')
+let listData =[]
+
+saqtau.addEventListener('click', function(e){
+    e.preventDefault()
+
+    let name = document.getElementById('input1').value
+    let age = document.getElementById('input2').value
+
+    if(name && age){
+        listData.push({name: name, age: age})
+        console.log(listData);
+        
+        sessionStorage.setItem('Info',JSON.stringify(listData))
+    }else{
+        alert("Ақпарат ергіз")
+    }
+})
+
+let korsetu = document.getElementById("korsetu")
+
+korsetu.addEventListener('click', function(e){
+    e.preventDefault()
+
+    let aqparat = JSON.parse(sessionStorage.getItem('Info'))
+    
+    
+
+    if(aqparat){
+        data.textContent = ''
+
+        aqparat.forEach((person, i) => {3
+            let div = document.createElement('div')
+
+        div.innerHTML = `
+        <div> index: ${i}</div>
+        <h1>${person.name}</h1>
+        <p>${person.age}</p>
+        <button  onclick="oshir(${i})">Өшіру</button>`
+
+        data.appendChild(div)
+        });
+        
+    }else{
+        alert('Ақпарат жоқ, Ақпарат енгіз')
+    }
+})
+
+
+function oshir(index) {
+    console.log('Өщірейін деп жатқан индекс: ', index);
+    data = JSON.parse(sessionStorage.getItem('Info'))
+
+    data = data.filter((el, i) => index != i)
+    console.log(data);
+
+    sessionStorage.setItem('Info', JSON.stringify(data))
+    window.location.reload()
+}
+
+let tazalau = document.getElementById("tazalau")
+
+tazalau.addEventListener("click", function(){
+    sessionStorage.clear()
+    window.location.reload()
+})
